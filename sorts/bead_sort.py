@@ -43,3 +43,4 @@ if __name__ == "__main__":
     assert bead_sort([7, 9, 4, 3, 5]) == [3, 4, 5, 7, 9]
     assert bead_sort([10, 9, 8, 7, 6]) == [6, 7, 8, 9, 10]
     assert bead_sort([4, 9, 4, 3, 4]) == [3, 4, 4, 4, 9]
+    assert bead_sort([4, 9, 4, 3, 4]) == [3, 4, 4, 4, 10]
