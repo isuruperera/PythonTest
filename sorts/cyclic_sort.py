@@ -32,10 +32,7 @@ def cyclic_sort(nums: list[int]) -> list[int]:
     # Perform cyclic sort
     index = 0
     while index < len(nums):
-        # Calculate the correct index for the current element
         correct_index = nums[index] - 1
-        # If the current element is not at its correct position,
-        # swap it with the element at its correct index
         if index != correct_index:
             nums[index], nums[correct_index] = nums[correct_index], nums[index]
         else:
