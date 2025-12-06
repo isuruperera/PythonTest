@@ -20,8 +20,6 @@ def cyclic_sort(nums: list[int]) -> list[int]:
     :param nums: List of n integers from 1 to n to be sorted.
     :return: The same list sorted in ascending order.
 
-    Time complexity: O(n), where n is the number of integers in the list.
-
     Examples:
     >>> cyclic_sort([])
     []
@@ -29,13 +27,10 @@ def cyclic_sort(nums: list[int]) -> list[int]:
     [1, 2, 3, 4, 5]
     """
 
-    # Perform cyclic sort
+    # Test 234
     index = 0
     while index < len(nums):
-        # Calculate the correct index for the current element
         correct_index = nums[index] - 1
-        # If the current element is not at its correct position,
-        # swap it with the element at its correct index
         if index != correct_index:
             nums[index], nums[correct_index] = nums[correct_index], nums[index]
         else:
