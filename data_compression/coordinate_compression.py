@@ -11,6 +11,8 @@ class CoordinateCompressor:
 
     This class allows you to compress and decompress a list of values.
 
+
+    TEST DATA:    arr = [100, 10, 52, 83]
     Mapping:
     In addition to compression and decompression, this class maintains a mapping
     between original values and their compressed counterparts using two data
