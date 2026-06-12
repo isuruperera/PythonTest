@@ -16,4 +16,5 @@ statsmodels
 sympy
 tweepy
 typing_extensions
+urllib3
 xgboost
