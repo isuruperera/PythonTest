@@ -51,7 +51,7 @@ class SegmentTree:
 
     def update(
         self, idx: int, left_element: int, right_element: int, a: int, b: int, val: int
-    ) -> bool:
+    ) -> None:
         """
         update with O(lg n) (Normal segment tree without lazy update will take O(nlg n)
         for each update)
@@ -68,7 +68,7 @@ class SegmentTree:
                 self.flag[self.right(idx)] = True
 
         if right_element < a or left_element > b:
-            return True
+            return
         if left_element >= a and right_element <= b:
             self.segment_tree[idx] = val
             if left_element != right_element:
@@ -76,14 +76,13 @@ class SegmentTree:
                 self.lazy[self.right(idx)] = val
                 self.flag[self.left(idx)] = True
                 self.flag[self.right(idx)] = True
-            return True
+            return
         mid = (left_element + right_element) // 2
         self.update(self.left(idx), left_element, mid, a, b, val)
         self.update(self.right(idx), mid + 1, right_element, a, b, val)
         self.segment_tree[idx] = max(
             self.segment_tree[self.left(idx)], self.segment_tree[self.right(idx)]
         )
-        return True
 
     # query with O(lg n)
     def query(

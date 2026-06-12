@@ -17,9 +17,9 @@ VAL = TypeVar("VAL")
 
 
 @dataclass(slots=True)
-class _Item[KEY, VAL]:
-    key: KEY
-    val: VAL
+class _Item[_KT, _VT]:
+    key: _KT
+    val: _VT
 
 
 class _DeletedItem(_Item):
