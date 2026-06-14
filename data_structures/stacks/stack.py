@@ -5,11 +5,11 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-class StackOverflowError(BaseException):
+class StackOverflowError(Exception):
     pass
 
 
-class StackUnderflowError(BaseException):
+class StackUnderflowError(Exception):
     pass
 
 
@@ -23,14 +23,14 @@ class Stack[T]:
     """
 
     def __init__(self, limit: int = 10):
-        self.stack: list[T] = []
+        self.items: list[T] = []
         self.limit = limit
 
     def __bool__(self) -> bool:
-        return bool(self.stack)
+        return bool(self.items)
 
     def __str__(self) -> str:
-        return str(self.stack)
+        return str(self.items)
 
     def push(self, data: T) -> None:
         """
@@ -50,9 +50,9 @@ class Stack[T]:
         data_structures.stacks.stack.StackOverflowError
 
         """
-        if len(self.stack) >= self.limit:
+        if len(self.items) >= self.limit:
             raise StackOverflowError
-        self.stack.append(data)
+        self.items.append(data)
 
     def pop(self) -> T:
         """
@@ -69,9 +69,9 @@ class Stack[T]:
             ...
         data_structures.stacks.stack.StackUnderflowError
         """
-        if not self.stack:
+        if not self.items:
             raise StackUnderflowError
-        return self.stack.pop()
+        return self.items.pop()
 
     def peek(self) -> T:
         """
@@ -88,9 +88,9 @@ class Stack[T]:
             ...
         data_structures.stacks.stack.StackUnderflowError
         """
-        if not self.stack:
+        if not self.items:
             raise StackUnderflowError
-        return self.stack[-1]
+        return self.items[-1]
 
     def is_empty(self) -> bool:
         """
@@ -105,7 +105,7 @@ class Stack[T]:
         >>> S.is_empty()
         False
         """
-        return not bool(self.stack)
+        return not bool(self.items)
 
     def is_full(self) -> bool:
         """
@@ -139,7 +139,7 @@ class Stack[T]:
         >>> S.size()
         2
         """
-        return len(self.stack)
+        return len(self.items)
 
     def __contains__(self, item: T) -> bool:
         """
@@ -155,7 +155,7 @@ class Stack[T]:
         >>> 20 in S
         False
         """
-        return item in self.stack
+        return item in self.items
 
 
 def test_stack() -> None:
@@ -170,15 +170,17 @@ def test_stack() -> None:
 
     try:
         _ = stack.pop()
-        raise AssertionError  # This should not happen
     except StackUnderflowError:
-        assert True  # This should happen
+        pass
+    else:
+        raise AssertionError  # This should not happen
 
     try:
         _ = stack.peek()
-        raise AssertionError  # This should not happen
     except StackUnderflowError:
-        assert True  # This should happen
+        pass
+    else:
+        raise AssertionError  # This should not happen
 
     for i in range(10):
         assert stack.size() == i
