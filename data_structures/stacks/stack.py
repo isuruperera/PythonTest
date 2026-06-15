@@ -172,7 +172,7 @@ def test_stack() -> None:
         _ = stack.pop()
         raise AssertionError  # This should not happen
     except StackUnderflowError:
-        assert True  # This should happen
+        pass
 
     try:
         _ = stack.peek()
