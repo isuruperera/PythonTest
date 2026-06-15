@@ -59,8 +59,8 @@ def get_frequency_table(edge_array):
 
     for item in distinct_edge:
         bit = get_bitcode(edge_array, item)
-        # print('bit',bit)
-        # bt=''.join(bit)
+        
+        
         s = bit.count("1")
         frequency_table[item] = [s, bit]
     # Store [Distinct edge, WT(Bitcode), Bitcode] in descending order
