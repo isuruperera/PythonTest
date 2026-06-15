@@ -176,9 +176,10 @@ def test_stack() -> None:
 
     try:
         _ = stack.peek()
-        raise AssertionError  # This should not happen
     except StackUnderflowError:
-        assert True  # This should happen
+        pass
+    else:
+        raise AssertionError  # This should not happen
 
     for i in range(10):
         assert stack.size() == i
