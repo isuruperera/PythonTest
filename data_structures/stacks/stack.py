@@ -5,11 +5,11 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-class StackOverflowError(BaseException):
+class StackOverflowError(Exception):
     pass
 
 
-class StackUnderflowError(BaseException):
+class StackUnderflowError(Exception):
     pass
 
 
