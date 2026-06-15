@@ -5,7 +5,7 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-class StackOverflowError(BaseException):
+class StackOverflowError(Exception):
     pass
 
 
