@@ -41,6 +41,9 @@ from math import sqrt
 
 from maths.greatest_common_divisor import gcd_by_iterative
 
+# Error message constants
+NUMBER_VALIDATION_ERROR = "'number' must been an int and >= 0"
+
 
 def is_prime(number: int) -> bool:
     """
@@ -198,7 +201,7 @@ def prime_factorization(number):
     """
 
     # precondition
-    assert isinstance(number, int) and number >= 0, "'number' must been an int and >= 0"
+    assert isinstance(number, int) and number >= 0, NUMBER_VALIDATION_ERROR
 
     ans = []  # this list will be returns of the function.
 
