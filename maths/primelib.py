@@ -175,6 +175,8 @@ def get_prime_numbers(n):
 
 # -----------------------------------------
 
+NUMBER_VALIDATION_MESSAGE = "'number' must been an int and >= 0"
+
 
 def prime_factorization(number):
     """
@@ -198,7 +200,7 @@ def prime_factorization(number):
     """
 
     # precondition
-    assert isinstance(number, int) and number >= 0, "'number' must been an int and >= 0"
+    assert isinstance(number, int) and number >= 0, NUMBER_VALIDATION_MESSAGE
 
     ans = []  # this list will be returns of the function.
 
