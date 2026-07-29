@@ -82,7 +82,7 @@ def open_knight_tour(n: int) -> list[list[int]]:
     ValueError: Open Knight Tour cannot be performed on a board of size 2
     """
 
-    board = [[0 for i in range(n)] for j in range(n)]
+    board = [[0 for _ in range(n)] for j in range(n)]
 
     for i in range(n):
         for j in range(n):
