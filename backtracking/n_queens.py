@@ -96,6 +96,6 @@ def printboard(board: list[list[int]]) -> None:
 
 # Number of queens (e.g., n=8 for an 8x8 board)
 n = 8
-board = [[0 for i in range(n)] for j in range(n)]
+board = [[0 for i in range(n)] for _ in range(n)]
 solve(board, 0)
 print("The total number of solutions are:", len(solution))
