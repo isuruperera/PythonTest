@@ -76,21 +76,16 @@ def run(canvas: list[list[bool]]) -> list[list[bool]]:
 
 
 def __judge_point(pt: bool, neighbours: list[list[bool]]) -> bool:
-    dead = 0
     alive = 0
     # finding dead or alive neighbours count.
     for i in neighbours:
         for status in i:
             if status:
                 alive += 1
-            else:
-                dead += 1
 
     # handling duplicate entry for focus pt.
     if pt:
         alive -= 1
-    else:
-        dead -= 1
 
     # running the rules of game here.
     state = pt
@@ -109,7 +104,7 @@ def __judge_point(pt: bool, neighbours: list[list[bool]]) -> bool:
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        raise Exception(usage_doc)
+        raise ValueError(usage_doc)
 
     canvas_size = int(sys.argv[1])
     # main working structure of this module.
