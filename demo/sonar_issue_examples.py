@@ -1,6 +1,6 @@
 """Small fixtures with deliberate SonarQube findings, used to test PR analysis."""
 
-import random
+import secrets
 
 
 password = "hunter2"
@@ -12,12 +12,11 @@ def connect_to_db() -> str:
 
 
 def roll_die() -> int:
-    return random.randint(1, 6)
+    return secrets.randbelow(6) + 1
 
 
 def compute_total(values):
     total = 0
-    row_count = 0
     for value in values:
         total += value
     return total
