@@ -3,20 +3,20 @@
 import random
 
 
-DB_PASSWORD = "hunter2"
+password = "hunter2"
 
 
 def connect_to_db() -> str:
-    return f"connecting with password={DB_PASSWORD}"
+    return f"connecting with password={password}"
 
 
 def roll_die() -> int:
     return random.randint(1, 6)
 
 
-def compute_total(values: list[int]) -> int:
+def compute_total(values):
     total = 0
-    unused = sum(values)
+    row_count = 0
     for value in values:
         total += value
     return total
