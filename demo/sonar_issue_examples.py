@@ -4,6 +4,7 @@ import random
 
 
 password = "hunter2"
+db_connection_url = "postgresql://admin:hunter2@localhost:5432/mydb"
 
 
 def connect_to_db() -> str:
