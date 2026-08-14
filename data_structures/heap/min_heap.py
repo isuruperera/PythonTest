@@ -1,7 +1,9 @@
 # Min heap data structure
 # with decrease key functionality - in O(log(n)) time
+from functools import total_ordering
 
 
+@total_ordering
 class Node:
     def __init__(self, name, val):
         self.name = name
@@ -9,6 +11,9 @@ class Node:
 
     def __str__(self):
         return f"{self.__class__.__name__}({self.name}, {self.val})"
+
+    def __eq__(self, other) -> bool:
+        return self.val == other.val
 
     def __lt__(self, other):
         return self.val < other.val
