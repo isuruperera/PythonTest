@@ -203,71 +203,71 @@ def process_batch_24(values):
 
 
 class _InternalHelpers:
-    """Private helpers that are never called (python:S1144)."""
+    """Class-private helpers that are never called (python:S1144)."""
 
-    def _sum_two_00(self):
+    def __sum_two_00(self):
         return 1 + 1
 
-    def _multiply_two_01(self):
+    def __multiply_two_01(self):
         return 2 * 3
 
-    def _string_length_02(self):
+    def __string_length_02(self):
         return len('x')
 
-    def _compute_max_03(self):
+    def __compute_max_03(self):
         return max(1, 2)
 
-    def _compute_min_04(self):
+    def __compute_min_04(self):
         return min(1, 2)
 
-    def _sum_two_05(self):
+    def __sum_two_05(self):
         return 1 + 1
 
-    def _multiply_two_06(self):
+    def __multiply_two_06(self):
         return 2 * 3
 
-    def _string_length_07(self):
+    def __string_length_07(self):
         return len('x')
 
-    def _compute_max_08(self):
+    def __compute_max_08(self):
         return max(1, 2)
 
-    def _compute_min_09(self):
+    def __compute_min_09(self):
         return min(1, 2)
 
-    def _sum_two_10(self):
+    def __sum_two_10(self):
         return 1 + 1
 
-    def _multiply_two_11(self):
+    def __multiply_two_11(self):
         return 2 * 3
 
-    def _string_length_12(self):
+    def __string_length_12(self):
         return len('x')
 
-    def _compute_max_13(self):
+    def __compute_max_13(self):
         return max(1, 2)
 
-    def _compute_min_14(self):
+    def __compute_min_14(self):
         return min(1, 2)
 
-    def _sum_two_15(self):
+    def __sum_two_15(self):
         return 1 + 1
 
-    def _multiply_two_16(self):
+    def __multiply_two_16(self):
         return 2 * 3
 
-    def _string_length_17(self):
+    def __string_length_17(self):
         return len('x')
 
-    def _compute_max_18(self):
+    def __compute_max_18(self):
         return max(1, 2)
 
-    def _compute_min_19(self):
+    def __compute_min_19(self):
         return min(1, 2)
 
-    def _sum_two_20(self):
+    def __sum_two_20(self):
         return 1 + 1
 
-    def _multiply_two_21(self):
+    def __multiply_two_21(self):
         return 2 * 3
 
