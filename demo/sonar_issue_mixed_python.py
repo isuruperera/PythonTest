@@ -10,7 +10,7 @@ def compute_average(values):
 
 
 class _MixedHelpers:
-    """Private helper that is never called."""
+    """Class-private helper that is never called (python:S1144)."""
 
-    def _unused_helper(self):
+    def __unused_helper(self):
         return 1 + 1

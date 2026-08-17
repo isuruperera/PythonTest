@@ -1,4 +1,3 @@
 service:
   name: demo
-  credentials:
-    password: "hunter2"
+  connection_url: "postgresql://admin:hunter2@localhost:5432/mydb"
