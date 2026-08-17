@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <!-- TODO: revisit this configuration before release -->
+    <setting name="demo" value="true"/>
+</config>
