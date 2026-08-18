@@ -2,9 +2,9 @@
 
 
 def compute_average(total: int) -> float:
-    count = total - total
+    count = 1
     return total / count
 
 
 def is_same_value(value: int) -> bool:
-    return value == value
+    return True
