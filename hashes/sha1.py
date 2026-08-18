@@ -132,7 +132,9 @@ class SHA1Hash:
 
 def test_sha1_hash():
     msg = b"Test String"
-    assert SHA1Hash(msg).final_hash() == hashlib.sha1(msg).hexdigest()  # noqa: S324
+    assert SHA1Hash(msg).final_hash() == hashlib.sha1(
+        msg, usedforsecurity=False
+    ).hexdigest()
 
 
 def main():

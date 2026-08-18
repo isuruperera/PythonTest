@@ -317,7 +317,11 @@ def md5_me(message: bytes) -> bytes:
     >>> from string import ascii_letters
     >>> msgs = [b"", ascii_letters.encode("utf-8"), "Üñîçø∂é".encode("utf-8"),
     ...         b"The quick brown fox jumps over the lazy dog."]
-    >>> all(md5_me(msg) == hashlib.md5(msg).hexdigest().encode("utf-8") for msg in msgs)
+    >>> all(
+    ...     md5_me(msg)
+    ...     == hashlib.md5(msg, usedforsecurity=False).hexdigest().encode("utf-8")
+    ...     for msg in msgs
+    ... )
     True
     """
 
