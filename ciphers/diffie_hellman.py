@@ -1,5 +1,5 @@
+import hmac
 from binascii import hexlify
-from hashlib import sha256
 from os import urandom
 
 # RFC 3526 - More Modular Exponential (MODP) Diffie-Hellman groups for
@@ -179,6 +179,19 @@ primes = {
 }
 
 
+def _derive_shared_key(shared_key: int, prime: int) -> str:
+    """Derive a symmetric key from a Diffie-Hellman shared secret using HKDF."""
+    shared_key_length = (prime.bit_length() + 7) // 8
+    shared_key_bytes = shared_key.to_bytes(shared_key_length, "big")
+    salt = prime.to_bytes(shared_key_length, "big")
+    pseudo_random_key = hmac.digest(salt, shared_key_bytes, "sha256")
+    return hmac.digest(
+        pseudo_random_key,
+        b"diffie-hellman shared key\x01",
+        "sha256",
+    ).hex()
+
+
 class DiffieHellman:
     """
     Class to represent the Diffie-Hellman key exchange protocol
@@ -238,7 +251,7 @@ class DiffieHellman:
         if not self.is_valid_public_key(other_key):
             raise ValueError("Invalid public key")
         shared_key = pow(other_key, self.__private_key, self.prime)
-        return sha256(str(shared_key).encode()).hexdigest()
+        return _derive_shared_key(shared_key, self.prime)
 
     @staticmethod
     def is_valid_public_key_static(remote_public_key_str: int, prime: int) -> bool:
@@ -258,7 +271,7 @@ class DiffieHellman:
         if not DiffieHellman.is_valid_public_key_static(remote_public_key, prime):
             raise ValueError("Invalid public key")
         shared_key = pow(remote_public_key, local_private_key, prime)
-        return sha256(str(shared_key).encode()).hexdigest()
+        return _derive_shared_key(shared_key, prime)
 
 
 if __name__ == "__main__":
