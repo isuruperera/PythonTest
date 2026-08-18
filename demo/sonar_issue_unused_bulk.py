@@ -148,7 +148,6 @@ def process_batch_17(values):
 
 def process_batch_18(values):
     count = 0
-    threshold_18 = 18
     for value in values:
         count += 1 if value > 0 else 0
     return count
@@ -156,7 +155,6 @@ def process_batch_18(values):
 
 def process_batch_19(values):
     product = 1
-    scratch_19 = 19
     for value in values:
         product *= value
     return product
