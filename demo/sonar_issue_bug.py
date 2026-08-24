@@ -2,7 +2,7 @@
 
 
 def compute_average(total: int) -> float:
-    count = total - total
+    count = 1
     return total / count
 
 
