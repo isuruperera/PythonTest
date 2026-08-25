@@ -105,7 +105,7 @@ def lanczos_iteration(
     orthonormal_basis: np.ndarray = np.zeros((num_nodes, num_eigenvectors))
     tridiagonal_matrix: np.ndarray = np.zeros((num_eigenvectors, num_eigenvectors))
 
-    rng = np.random.default_rng()
+    rng = np.random.default_rng(42)
     initial_vector: np.ndarray = rng.random(num_nodes)
     initial_vector /= np.sqrt(np.dot(initial_vector, initial_vector))
     orthonormal_basis[:, 0] = initial_vector
