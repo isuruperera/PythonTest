@@ -18,8 +18,8 @@ VAL = TypeVar("VAL")
 
 @dataclass(slots=True)
 class _Item[KEY, VAL]:
-    key: KEY
-    val: VAL
+    item_key: KEY
+    item_val: VAL
 
 
 class _DeletedItem(_Item):
@@ -81,8 +81,8 @@ class HashMap(MutableMapping[KEY, VAL]):
             self._buckets[ind] = _Item(key, val)
             self._len += 1
             return True
-        elif stored.key == key:
-            stored.val = val
+        elif stored.item_key == key:
+            stored.item_val = val
             return True
         else:
             return False
@@ -117,7 +117,7 @@ class HashMap(MutableMapping[KEY, VAL]):
         self._len = 0
         for item in old_buckets:
             if item:
-                self._add_item(item.key, item.val)
+                self._add_item(item.item_key, item.item_val)
 
     def _size_up(self) -> None:
         self._resize(len(self._buckets) * 2)
@@ -257,7 +257,7 @@ class HashMap(MutableMapping[KEY, VAL]):
                 raise KeyError(key)
             if item is _deleted:
                 continue
-            if item.key == key:
+            if item.item_key == key:
                 self._buckets[ind] = _deleted
                 self._len -= 1
                 break
@@ -290,8 +290,8 @@ class HashMap(MutableMapping[KEY, VAL]):
                 break
             if item is _deleted:
                 continue
-            if item.key == key:
-                return item.val
+            if item.item_key == key:
+                return item.item_val
         raise KeyError(key)
 
     def __len__(self) -> int:
@@ -312,11 +312,11 @@ class HashMap(MutableMapping[KEY, VAL]):
         return self._len
 
     def __iter__(self) -> Iterator[KEY]:
-        yield from (item.key for item in self._buckets if item)
+        yield from (item.item_key for item in self._buckets if item)
 
     def __repr__(self) -> str:
         val_string = ", ".join(
-            f"{item.key}: {item.val}" for item in self._buckets if item
+            f"{item.item_key}: {item.item_val}" for item in self._buckets if item
         )
         return f"HashMap({val_string})"
 
