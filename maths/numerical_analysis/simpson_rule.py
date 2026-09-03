@@ -73,7 +73,7 @@ def f(x):  # enter your function here
 def main():
     a = 0.0  # Lower bound of integration
     b = 1.0  # Upper bound of integration
-    steps = 10.0  # number of steps or resolution
+    steps = 10  # number of steps or resolution
     boundary = [a, b]  # boundary of integration
     y = method_2(boundary, steps)
     print(f"y = {y}")
