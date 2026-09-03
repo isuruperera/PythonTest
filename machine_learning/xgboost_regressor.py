@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 
 
-def data_handling(data: dict) -> tuple:
+def data_handling(data: object) -> tuple:
     # Split dataset into features and target.  Data is features.
     """
     >>> data_handling((

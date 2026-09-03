@@ -53,7 +53,7 @@ def main() -> None:
     iris = load_iris()
     features, targets = data_handling(iris)
     x_train, x_test, y_train, y_test = train_test_split(
-        features, targets, test_size=0.25
+        iris.data, iris.target, test_size=0.25
     )
 
     names = iris["target_names"]
