@@ -42,7 +42,7 @@ random.shuffle(choice)
 
 
 def create_canvas(size: int) -> list[list[bool]]:
-    canvas = [[False for i in range(size)] for j in range(size)]
+    canvas = [[False for i in range(size)] for _ in range(size)]
     return canvas
 
 
