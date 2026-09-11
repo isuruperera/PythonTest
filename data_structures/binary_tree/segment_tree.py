@@ -61,15 +61,15 @@ class SegmentTree:
         update(1, 1, N, a, b, v) for update val v to [a,b]
         """
         if right < a or left > b:
-            return True
+            return False
         if left == right:
             self.st[idx] = val
             return True
         mid = (left + right) // 2
-        self.update_recursive(self.left(idx), left, mid, a, b, val)
-        self.update_recursive(self.right(idx), mid + 1, right, a, b, val)
+        left_updated = self.update_recursive(self.left(idx), left, mid, a, b, val)
+        right_updated = self.update_recursive(self.right(idx), mid + 1, right, a, b, val)
         self.st[idx] = max(self.st[self.left(idx)], self.st[self.right(idx)])
-        return True
+        return left_updated or right_updated
 
     def query(self, a, b):
         """
