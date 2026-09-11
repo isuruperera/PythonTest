@@ -51,7 +51,7 @@ class DenseLayer:
         self.is_input_layer = is_input_layer
 
     def initializer(self, back_units):
-        rng = np.random.default_rng()
+        rng = np.random.default_rng(42)
         self.weight = np.asmatrix(rng.normal(0, 0.5, (self.units, back_units)))
         self.bias = np.asmatrix(rng.normal(0, 0.5, self.units)).T
         if self.activation is None:
